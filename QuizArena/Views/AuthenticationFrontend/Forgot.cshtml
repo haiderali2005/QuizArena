@@ -1,0 +1,82 @@
+﻿@{
+    Layout = null;
+}
+<!doctype html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>QuizArena</title>
+
+    <link rel="stylesheet" href="~/login/style3.css">
+
+</head>
+
+<body>
+    <section>
+        <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span>
+
+        <div class="signin">
+
+            <div class="content">
+
+                <h2>Forgot Password</h2>
+                <form method="post">
+                    @if (TempData["forgot2"] != null)
+                    {
+                        <div class="custom-message">
+                            <h3 class="fw-bold text-warning">@TempData["forgot2"]</h3>
+                        </div>
+                    }
+
+                    <div class="form">
+
+                        <div class="inputBox">
+
+                            <input name="Email" type="email" required> <i>Email</i>
+
+                        </div>
+
+
+                        <div class="inputBox">
+
+                            <input name="Password" type="password" required> <i>New Password</i>
+
+                        </div>
+
+                        <div class="links">
+                            <a href="@Url.Action("Register","AuthenticationFrontend")">Create a new account</a>
+
+                        </div>
+
+                        <div class="inputBox">
+
+                            <input type="submit" value="Save Changes">
+
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section> 
+</body>
+</html>
+<style>
+    .custom-message {
+        background-color: black; 
+        border: 1px solid black; 
+        border-radius: 0.15rem; 
+        padding: 1.2rem; 
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        display: inline-block; 
+    }
+
+        .custom-message h3 {
+            margin: 0; 
+            color: white;
+        }
+</style>

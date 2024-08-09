@@ -1,0 +1,8 @@
+﻿@model List<User>
+<select class="form-select" name="UserId">
+    <option hidden>Select Name</option>
+    @foreach (var item in Model)
+    {
+        <option value="@item.UserId">@item.Username</option>
+    }
+</select>

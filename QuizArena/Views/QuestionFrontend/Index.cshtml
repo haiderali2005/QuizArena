@@ -1,0 +1,106 @@
+﻿@model IEnumerable<QuizArena.Models.Question>
+
+@{
+    ViewBag.Title = "Quiz Questions";
+}
+@{
+    Layout = "_QuizFrontendBackupLayout";
+}
+<main id="home2">
+    <section class="hero3 py-5" id="hero">
+        <div class="container h-100">
+            <div class="row h-100 text-center">
+                <div class="col d-flex justify-content-center align-items-center flex-column">
+                    <h1 class="text-white fw-bold mb-3">QuizArena</h1>
+                    <a href="#questions" class="btn btn-light btn-lg shadow">Start Quiz</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+<div class="container text-center my-5">
+    <h1 class="fw-bold mb-4">Quiz Questions</h1>
+</div>
+<section id="questions" class="container py-5">
+    <form method="post" asp-action="Submit">
+        @for (int i = 0; i < Model.Count(); i++)
+        {
+            var question = Model.ElementAt(i);
+            <div class="question-card mb-4 p-4 shadow-lg rounded">
+                <h2 class="fw-semibold mb-4 text-dark fw-bold">@question.QuestionText</h2>
+                <div class="options-container mb-4">
+                    @foreach (var option in question.Options)
+                    {
+                        <div class="form-check option-card mb-2 p-3 rounded">
+                            <input type="radio" id="option_@option.Id" name="optionIds[@i]" value="@option.Id" class="form-check-input" required>
+                            <label for="option_@option.Id" class="form-check-label fs-5">@option.OptionText</label>
+                        </div>
+                    }
+                </div>
+                <input type="hidden" name="questionIds[@i]" value="@question.QuestionId" />
+            </div>
+        }
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary btn-lg shadow">Submit</button>
+        </div>
+    </form>
+</section>
+<style>
+    .hero3 h1 {
+        font-size: 3rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+    .btn1 {
+        background-color: black;
+        color: #fff;
+        border-radius: 50px;
+        padding: 10px 20px;
+        font-size: 1.25rem;
+        transition: background-color 0.3s, transform 0.3s;
+    }
+        .btn1:hover {
+            background-color: black;
+            transform: scale(1.05);
+        }
+    .question-card {
+        background-color: #f8f9fa;
+        border: 1px solid #dee2e6;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+        .question-card h2 {
+            font-size: 1.75rem;
+            color: black;
+        }
+    .options-container {
+        border-top: 1px solid #dee2e6;
+        padding-top: 15px;
+    }
+    .option-card {
+        background-color: #fff;
+        border: 1px solid #dee2e6;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.3s, box-shadow 0.3s;
+    }
+        .option-card:hover {
+            background-color: #f1f1f1;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+    .form-check-label {
+        font-size: 1.125rem;
+        color: #333;
+    }
+    .btn-primary {
+        background-color: black;
+        border-color: black;
+        padding: 12px 24px;
+        font-size: 1.125rem;
+        border-radius: 5px;
+        transition: background-color 0.3s, border-color 0.3s, box-shadow 0.3s;
+    }
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+</style>

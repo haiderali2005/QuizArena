@@ -1,0 +1,66 @@
+﻿@{
+    ViewData["Title"] = "Index";
+}
+@{
+    Layout = "QuizFrontendLayout";
+}
+<main id="home2">
+    <section class="hero" id="hero">
+        <div class="container h-100">
+            <div class="row h-100">
+                <div class="col text-center d-flex justify-content-center align-items-center flex-column">
+                    <h1 class="text-white">QuizArena</h1>
+                    <h2 class="text-white">Unlock the fun and challenge of quizzes!</h2>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+<div class="mt-5 container text-center">
+    <h1 id="quizabt" class="text-center fw-bold display-4" style="font-size: 3rem; color: black; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); letter-spacing: 1px;">
+        About Us
+    </h1>
+</div>
+<div class="welcome-container text-center mt-5">
+    <h5>
+        Welcome to QuizArena, where we transform learning into an engaging adventure! At QuizArena, our mission is to offer a dynamic platform that not only challenges users with a variety of quizzes but also provides tools to track progress and compete in a fun and interactive environment.
+
+        Our platform is designed with both users and administrators in mind. Administrators can effortlessly create and manage quizzes with our intuitive tools, while users benefit from a seamless experience that makes learning enjoyable and rewarding. With a diverse range of topics and difficulty levels, QuizArena caters to all interests and skill levels, ensuring there's always a new challenge around the corner.
+
+        We are dedicated to continuously enhancing our platform based on your feedback and evolving educational needs. Whether you're here to test your knowledge, improve your skills, or simply have fun, QuizArena is committed to providing a valuable resource for knowledge and growth.
+
+        Thank you for joining us on this journey. At QuizArena, education meets excitement, and every quiz is a new opportunity to learn and grow. Dive in, explore our quizzes, and let the adventure begin!
+    </h5>
+</div>
+
+<div class="mt-5 container text-center">
+    <h1 id="quiz" class="text-center fw-bold display-4" style="font-size: 3rem; color: black; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); letter-spacing: 1px;">
+        Our Quizzes
+    </h1>
+</div>
+<div class="mt-5 conatiner">
+    <div class="row">
+        @Html.Partial("_quizz", ViewData["quizes"] )
+    </div>
+</div>
+<style>
+    .welcome-container {
+        border: 2px solid #333;
+        border-radius: 10px;
+        padding: 40px;
+        margin: 20px auto;
+        max-width: 80%;
+        background-color: #f9f9f9;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+        .welcome-container h5 {
+            color: #333;
+            font-size: 1.2em;
+            line-height: 1.6;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            padding: 0 15px;
+        }
+
+</style>

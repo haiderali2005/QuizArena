@@ -1,0 +1,35 @@
+﻿@model QuizArena.Models.Option
+
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-header">
+            <h4 class="card-title">Option Details</h4>
+        </div>
+        <div class="card-body">
+            <dl class="row">
+                <dt class="col-sm-3 fw-bold">
+                    @Html.DisplayNameFor(model => model.OptionText)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.OptionText)
+                </dd>
+                <dt class="col-sm-3 fw-bold">
+                    @Html.DisplayNameFor(model => model.Question)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.Question.QuestionText)
+                </dd>
+                <dt class="col-sm-3 fw-bold">
+                    Is Correct
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.IsCorrect)
+                </dd>
+            </dl>
+            <div class="d-flex justify-content-end mt-4">
+                <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-primary me-2">Edit</a>
+                <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,40 @@
+﻿@model QuizArena.Models.UserProgress
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="container mt-5">
+    <h1>User Progress Details</h1>
+    <div class="card">
+        <div class="card-body">
+            <h4>UserProgress</h4>
+            <hr />
+            <dl class="row">
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.Completed)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.Completed)
+                </dd>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.Score)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.Score)
+                </dd>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.Quiz)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.Quiz.Title)
+                </dd>
+            </dl>
+        </div>
+    </div>
+
+    <div class="mt-3">
+        <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-primary">Edit</a> |
+        <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+    </div>
+</div>

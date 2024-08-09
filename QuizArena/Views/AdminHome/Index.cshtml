@@ -1,0 +1,83 @@
+﻿@model IEnumerable<QuizArena.Models.Quiz>
+
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<div class="container mt-5">
+    <h1 class="text-center mb-5 display-4 fw-bold text-dark">Welcome to Your QuizArena Dashboard</h1>
+    <div class="row mb-4">
+        <div class="col-md-12 text-center">
+            <p>
+                <a asp-action="Create" asp-controller="Quizzes" class="btn btn-dark btn-lg rounded-pill shadow-sm">Create New Quiz</a>
+            </p>
+        </div>
+    </div>
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card shadow-lg border-light rounded-lg overflow-hidden">
+                    <img src="@("~/quizimages/" + item.QuizImage)" asp-append-version=true class="card-img-top" alt="Quiz Image" style="height: 200px; object-fit: cover;" />
+                    <div class="card-body text-center">
+                        <h5 class="card-title text-dark fs-4 fw-semibold">@item.Title</h5>
+                        <p class="card-text text-muted fs-6">@item.Description</p>
+                        <div class="d-flex justify-content-center gap-2">
+                            <a asp-action="Details" asp-controller="Quizzes" asp-route-id="@item.QuizId" class="btn btn-info rounded-pill shadow-sm">View Details</a>
+                            <a asp-action="Edit" asp-controller="Quizzes" asp-route-id="@item.QuizId" class="btn btn-secondary rounded-pill shadow-sm">Edit</a>
+                            <a asp-action="Delete" asp-controller="Quizzes" asp-route-id="@item.QuizId" class="btn btn-danger rounded-pill shadow-sm">Delete</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<!-- Add custom CSS to style text -->
+<style>
+    .display-4 {
+        font-size: 3.5rem;
+        line-height: 1.2;
+    }
+
+    .fw-bold {
+        font-weight: 700;
+    }
+
+    .text-primary {
+        color: #0d6efd;
+    }
+
+    .text-dark {
+        color: #212529;
+    }
+
+    .fs-4 {
+        font-size: 1.5rem;
+    }
+
+    .fs-6 {
+        font-size: 0.875rem;
+    }
+
+    .rounded-pill {
+        border-radius: 50rem;
+    }
+
+    .shadow-sm {
+        box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    }
+
+    .gap-2 {
+        gap: 0.5rem;
+    }
+
+    .overflow-hidden {
+        overflow: hidden;
+    }
+
+    .rounded-lg {
+        border-radius: 0.5rem;
+    }
+</style>

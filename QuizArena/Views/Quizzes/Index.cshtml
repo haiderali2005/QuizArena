@@ -1,0 +1,53 @@
+﻿@model IEnumerable<QuizArena.Models.Quiz>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container mt-5">
+    <h1 class="mb-4">Quizzes</h1>
+
+    <p>
+        <a asp-action="Create" class="btn btn-primary">Create New</a>
+    </p>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Title)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Description)
+                    </th>
+                    <th>
+                        Image
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Title)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Description)
+                        </td>
+                        <td>
+                            <img src="@("~/quizimages/" + item.QuizImage)" asp-append-version="true" class="img-thumbnail" width="100" height="100" />
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.QuizId" class="btn btn-warning btn-sm">Edit</a> |
+                            <a asp-action="Details" asp-route-id="@item.QuizId" class="btn btn-info btn-sm">Details</a> |
+                            <a asp-action="Delete" asp-route-id="@item.QuizId" class="btn btn-danger btn-sm">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
